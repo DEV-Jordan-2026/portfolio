@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/verify-cv.js": {
+      "includeFiles": "private/**"
+    }
+  },
+  "headers": [
+    {
+      "source": "/private/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    }
+  ]
+}

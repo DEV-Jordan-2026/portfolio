@@ -1,5 +1,11 @@
-private/
+# NE PAS ignorer private/ : le PDF du CV doit être commité pour que
+# vercel.json > functions.includeFiles puisse l'embarquer dans le bundle
+# de la fonction /api/verify-cv. L'accès direct à /private/* est bloqué
+# par la règle "redirects" de vercel.json (les redirects sont évalués
+# AVANT le système de fichiers sur Vercel).
+
 .vercel
 node_modules
 .env
 .env.local
+.DS_Store

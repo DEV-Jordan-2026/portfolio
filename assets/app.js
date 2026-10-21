@@ -227,7 +227,11 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       cvWidgetId = turnstile.render('#turnstile-cv', {
         sitekey: TURNSTILE_SITE_KEY,
-        size: 'invisible',
+        // Cloudflare a retiré size:'invisible'. Le mode invisible se règle
+        // désormais avec execution + appearance ; `size` n'accepte plus que
+        // 'normal', 'compact' ou 'flexible'.
+        execution: 'execute',
+        appearance: 'interaction-only',
         retry: 'never',
         callback: (token) => downloadCv(token),
         'error-callback': () => { endCvAttempt(T.cvFailed); return true; },

@@ -1,0 +1,3 @@
+# Fichiers locaux à ne jamais publier quand on déploie avec `vercel` depuis ce PC.
+.claude/
+.env*
